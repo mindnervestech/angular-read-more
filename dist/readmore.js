@@ -3,14 +3,11 @@
 readMore.$inject = ["$templateCache"];
 angular
 	.module('hm.readmore', ['ngAnimate', 'ngSanitize'])
-	.directive('hmReadMore', readMore)
-	.config(["$logProvider", function ($logProvider) {
-		$logProvider.debugEnabled(false);
-	}]);
+	.directive('hmReadMore', readMore);
 
 /** @ngInject */
 function readMore($templateCache) {
-	hmReadMoreController.$inject = ["$filter", "$scope", "$log"];
+	hmReadMoreController.$inject = ["$filter", "$scope"];
 	var directive = {
 		restrict: 'AE',
 		scope: {
@@ -31,7 +28,7 @@ function readMore($templateCache) {
 
 	/** @ngInject */
 	// "bindToController: true" binds scope variables to Controller
-	function hmReadMoreController($filter, $scope, $log) {
+	function hmReadMoreController($filter, $scope) {
 		var limit = 0;
 		var vm = this;
 		vm.toggle = {
